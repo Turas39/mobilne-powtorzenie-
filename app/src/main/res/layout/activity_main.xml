@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,6 +8,243 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:id="@+id/imie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"
+            android:hint="Podaj swoje imię"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Spinner
+                android:id="@+id/rasa_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="30dp"
+                />
+
+            <ImageView
+                android:id="@+id/rasa_fota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            >
+
+            <Button
+                android:id="@+id/date_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Wybierz datę"
+                android:layout_marginRight="30dp"
+                />
+
+            <Button
+                android:id="@+id/time_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Wybierz godzinę"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="specjalne ścieżki:"
+                android:layout_margin="15dp"
+                android:textSize="20dp"
+                />
+
+            <Switch
+                android:id="@+id/my_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Włącz/Wyłącz"
+                android:layout_margin="15dp"
+                android:textSize="20dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dodatkowe wyposażenie:"
+                android:textSize="20dp"
+                />
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="płaszcz elfów"
+                />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lembasy" />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pochodnia"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Priorytet marszu:"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ukryty">
+
+                </RadioButton>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="zbalansowany">
+
+            </RadioButton>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="forsowny">
+
+                </RadioButton>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="100"
+                android:progress="1"
+                android:min="1"
 
 
-</LinearLayout>
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Chronometer
+                android:id="@+id/myChronometr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_margin="20dp"
+                android:layout_gravity="center"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/timerCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pozostało 0 sekund"
+                android:textSize="25sp"
+                android:layout_margin="20dp"/>
+
+            <ProgressBar
+                android:id="@+id/myProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10px"
+                android:padding="10px"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <RatingBar
+                android:id="@+id/my_ratingbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="0.5"
+                android:rating="2.5"
+                android:isIndicator="false"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/podsumowanie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
