@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 fotaPozdro.setImageResource(images[position])
-                aktualizujPodsumowanie()  // <- aktualizacja po wyborze rasy
+                aktualizujPodsumowanie()
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                 if (godzina.isNotEmpty()) {
                     textview_data.text = "Wyruszasz: $data o $godzina"
                 }
-                aktualizujPodsumowanie()  // <- aktualizacja po wyborze daty
+                aktualizujPodsumowanie()
             }
             picker.show()
         }
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                 if (data.isNotEmpty()) {
                     textview_data.text = "Wyruszasz: $data o $godzina"
                 }
-                aktualizujPodsumowanie()  // <- aktualizacja po wyborze godziny
+                aktualizujPodsumowanie()
             }, 7, 30, true)
             picker.show()
         }
@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 seekBarInfo.text = "Czas marszu: $progress min"
-                aktualizujPodsumowanie()  // <- aktualizacja po zmianie SeekBar
+                aktualizujPodsumowanie()
             }
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
@@ -154,14 +154,13 @@ class MainActivity : AppCompatActivity() {
         val ratingBar = findViewById<RatingBar>(R.id.my_ratingbar)
         ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
             if (fromUser) {
-                podsumowanie.text = "Ocena morale drużyny: $rating / ${ratingBar.numStars}"
-                aktualizujPodsumowanie()  // <- aktualizacja po zmianie ratingu
+                aktualizujPodsumowanie()
             }
         }
 
         val radioGroup = findViewById<RadioGroup>(R.id.radiogroup)
         radioGroup.setOnCheckedChangeListener { _, _ ->
-            aktualizujPodsumowanie()  // <- aktualizacja po zmianie priorytetu
+            aktualizujPodsumowanie()
         }
 
         val checkBox1 = findViewById<CheckBox>(R.id.checkBox1)
@@ -171,13 +170,13 @@ class MainActivity : AppCompatActivity() {
         val checkBoxes = listOf(checkBox1, checkBox2, checkBox3)
         checkBoxes.forEach { checkBox ->
             checkBox.setOnCheckedChangeListener { _, _ ->
-                aktualizujPodsumowanie()  // <- aktualizacja po zmianie checkboxów
+                aktualizujPodsumowanie()
             }
         }
 
         val imieEditText = findViewById<EditText>(R.id.imie)
-        imieEditText.setOnFocusChangeListener { _, hasFocus ->
-            if (!hasFocus) { // gdy tracimy focus (np. po wpisaniu)
+        imieEditText.setOnFocusChangeListener { _, pozdro ->
+            if (!pozdro) {
                 aktualizujPodsumowanie()
             }
         }
@@ -203,9 +202,9 @@ class MainActivity : AppCompatActivity() {
         val checkBox2 = findViewById<CheckBox>(R.id.checkBox2)
         val checkBox3 = findViewById<CheckBox>(R.id.checkBox3)
         val wyposazenieList = mutableListOf<String>()
-        if (checkBox1.isChecked) wyposazenieList.add(checkBox1.text.toString().capitalize())
-        if (checkBox2.isChecked) wyposazenieList.add(checkBox2.text.toString().capitalize())
-        if (checkBox3.isChecked) wyposazenieList.add(checkBox3.text.toString().capitalize())
+        if (checkBox1.isChecked) wyposazenieList.add(checkBox1.text.toString().replaceFirstChar { it.uppercase() })
+        if (checkBox2.isChecked) wyposazenieList.add(checkBox2.text.toString().replaceFirstChar { it.uppercase() })
+        if (checkBox3.isChecked) wyposazenieList.add(checkBox3.text.toString().replaceFirstChar { it.uppercase() })
         val wyposazenie =
             if (wyposazenieList.isEmpty()) "Brak" else wyposazenieList.joinToString(", ")
 
