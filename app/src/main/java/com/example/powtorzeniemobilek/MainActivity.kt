@@ -45,8 +45,6 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val podsumowanie = findViewById<TextView>(R.id.podsumowanie)
-
         val spinner = findViewById<Spinner>(R.id.rasa_spinner)
         val rasy = arrayOf("Hobbit", "Człowiek", "Elf", "Krasnolud")
         val images = listOf(R.drawable.hobbit, R.drawable.czlek, R.drawable.elf, R.drawable.krasnolud)
